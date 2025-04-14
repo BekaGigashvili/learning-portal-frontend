@@ -1,0 +1,83 @@
+@import '../../Global.scss';
+
+.register-page {
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+  
+    .register-container {
+      background: white;
+      padding: 40px;
+      margin-top: 80px;
+      border-radius: 20px;
+      outline: 2px solid $mainColor;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      max-width: 90%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+  
+      h2 {
+        margin: 0;
+        text-align: center;
+        font-size: 28px;
+        color: #333;
+      }
+  
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+  
+        input {
+          padding: 12px 15px;
+          border: 1px solid #ccc;
+          border-radius: 10px;
+          font-size: 14px;
+          transition: 0.3s;
+  
+          &:focus {
+            border-color: #6e8efb;
+            outline: none;
+          }
+        }
+  
+        button {
+          padding: 12px;
+          background: linear-gradient(90deg, $mainColor, #FEBD5E);
+          border: none;
+          border-radius: 10px;
+          color: white;
+          font-size: 16px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+  
+          &:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+          }
+        }
+      }
+  
+      .back-link {
+        margin-top: 10px;
+        text-align: center;
+  
+        a {
+          text-decoration: none;
+          color: #6e8efb;
+          font-weight: 500;
+  
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  
