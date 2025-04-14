@@ -1,0 +1,67 @@
+@import "../../Global.scss";
+
+.main-header {
+  width: 100%;
+  background: transparent;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  position: absolute;
+  top: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+  transition: all 1s ease;
+  margin: 0;
+  .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: $mainColor;
+    transition: all 2s ease;
+    text-decoration: none;
+  }
+
+  .hamburger {
+    width: 28px;
+    height: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 2000;
+
+    div {
+      height: 3px;
+      background-color: $mainColor;
+      border-radius: 2px;
+      transition: all 2s ease;
+      transform-origin: left;
+    }
+  }
+
+  &.active {
+    background-color: $mainColor;
+
+    .logo {
+      color: white;
+    }
+
+    .hamburger {
+      div:first-child {
+        transform: rotate(45deg);
+        background-color: white;
+      }
+
+      div:nth-child(2) {
+        opacity: 0;
+      }
+
+      div:nth-child(3) {
+        transform: rotate(-45deg);
+        background-color: white;
+      }
+    }
+  }
+}
