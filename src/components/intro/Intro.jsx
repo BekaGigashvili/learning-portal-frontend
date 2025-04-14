@@ -23,8 +23,13 @@ export default function Intro() {
 
   const navigate = useNavigate();
 
-  const goToRegister = () => {
-    navigate('/register');
+  const goToLogin = () => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      navigate('/dashboard');
+    } else {
+      navigate('/login');
+    }
   };
 
   return (
@@ -34,13 +39,13 @@ export default function Intro() {
           <h1>მოძებნე შენთვის სასურველი კურსი</h1>
           <h2>შენთვის სასურველ პროფესიაში და შემდეგ</h2>
           <h3><span ref={textRef}></span></h3>
-          <button className="my-button" onClick={goToRegister}>დაიწყე ახლავე</button>
+          <button className="my-button" onClick={goToLogin}>დაიწყე ახლავე</button>
 
         </div>
       </div>
       <div className="right">
         <div className="wrapper">
-          <img src="assets/intro/4.png" alt="" />
+          <img src="assets/intro/test.png" alt="" />
         </div>
         <a href="#portfolio">
           <img src="assets/down arrow.png" alt="" />
