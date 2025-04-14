@@ -7,14 +7,11 @@ const Register = () => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
     email: '',
     password: '',
   });
 
   const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -26,7 +23,6 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-    setSuccess('');
 
     try {
       const res = await axios.post('http://localhost:8080/auth/authentication', formData, {
@@ -35,10 +31,13 @@ const Register = () => {
         },
       });
 
-      setSuccess(res.data);
-      // navigate
+      const token = res.data.token;
+      localStorage.setItem('token', token);
+      navigate('/dashboard');
+
     } catch (err) {
-      setError(err.response?.data || 'Login failed');
+        const errorMsg = err.response?.data?.message || 'მოხდა შეცდომა';
+        setError(errorMsg);
     }
   };
 
@@ -56,7 +55,6 @@ const Register = () => {
         </form>
 
         {error && <p style={{ color: 'crimson', textAlign: 'center' }}>{error}</p>}
-        {success && <p style={{ color: 'green', textAlign: 'center' }}>{success}</p>}
 
       </div>
     </div>
