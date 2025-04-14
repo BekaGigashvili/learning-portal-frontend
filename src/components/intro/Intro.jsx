@@ -2,6 +2,8 @@ import "./Intro.scss"
 import { init } from 'ityped'
 import { useEffect, useRef } from "react"
 
+import { useNavigate } from 'react-router-dom';
+
 export default function Intro() {
   const textRef = useRef(null)
 
@@ -19,6 +21,12 @@ export default function Intro() {
     }
   }, []);
 
+  const navigate = useNavigate();
+
+  const goToRegister = () => {
+    navigate('/register');
+  };
+
   return (
     <div className="intro" id="intro">
       <div className="left">
@@ -26,6 +34,8 @@ export default function Intro() {
           <h1>მოძებნე შენთვის სასურველი კურსი</h1>
           <h2>შენთვის სასურველ პროფესიაში და შემდეგ</h2>
           <h3><span ref={textRef}></span></h3>
+          <button className="my-button" onClick={goToRegister}>დაიწყე ახლავე</button>
+
         </div>
       </div>
       <div className="right">
