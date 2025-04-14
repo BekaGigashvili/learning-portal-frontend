@@ -2,7 +2,7 @@
 
 .main-header {
   width: 100%;
-  background: transparent;
+  background: white;
   padding: 20px 40px;
   display: flex;
   justify-content: space-between;
@@ -11,7 +11,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   position: absolute;
   top: 0;
-  z-index: 1000;
+  z-index: 3;
   box-sizing: border-box;
   transition: all 1s ease;
   margin: 0;
@@ -24,8 +24,8 @@
   }
 
   .hamburger {
-    width: 28px;
-    height: 22px;
+    width: 31px;
+    height: 25px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
