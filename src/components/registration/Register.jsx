@@ -36,8 +36,9 @@ const Register = () => {
       });
 
       setSuccess(res.data);
-      // Optionally redirect after registration
-      // navigate("/some-page");
+      setTimeout(() => {
+        navigate('/login'); // Adjust path if your login route is different
+      }, 3000);
     } catch (err) {
       setError(err.response?.data || 'Registration failed');
     }
@@ -53,10 +54,13 @@ const Register = () => {
           <input type="email" name="email" placeholder="მეილი" value={formData.email} onChange={handleChange} required />
           <input type="password" name="password" placeholder="პაროლი" value={formData.password} onChange={handleChange} required />
           <button type="submit">დარეგისტრირდი</button>
+          <div className='back-link'>
+            <a href="/login">უკვე გაქვთ ანგარიში?</a>
+          </div>
         </form>
 
-        {error && <p style={{ color: 'crimson', textAlign: 'center' }}>{error}</p>}
-        {success && <p style={{ color: 'green', textAlign: 'center' }}>{success}</p>}
+        {error && <p style={{ color: 'crimson', textAlign: 'center' }}>მოხდა შეცდომა</p>}
+        {success && <p style={{ color: 'green', textAlign: 'center' }}>შეამოწმეთ მეილი</p>}
 
       </div>
     </div>

@@ -11,7 +11,7 @@
   
     .register-container {
       background: white;
-      padding: 40px;
+      padding: 30px 40px;
       margin-top: 80px;
       border-radius: 20px;
       outline: 2px solid $mainColor;
@@ -49,6 +49,7 @@
   
         button {
           padding: 12px;
+          margin: 0;
           background: linear-gradient(90deg, $mainColor, #FEBD5E);
           border: none;
           border-radius: 10px;
@@ -61,22 +62,30 @@
             transform: scale(1.03);
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
           }
+          &:active{
+            transform: scale(0.95);
+          }
         }
       }
   
       .back-link {
-        margin-top: 10px;
+        margin: 0;
+        padding: 0;
         text-align: center;
   
         a {
           text-decoration: none;
-          color: #6e8efb;
+          color: $mainColor;
           font-weight: 500;
   
           &:hover {
             text-decoration: underline;
           }
         }
+      }
+      p{
+        margin: 0;
+        padding: 0;
       }
     }
   }
