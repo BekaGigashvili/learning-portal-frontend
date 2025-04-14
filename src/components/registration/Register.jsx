@@ -40,7 +40,8 @@ const Register = () => {
         navigate('/login'); // Adjust path if your login route is different
       }, 3000);
     } catch (err) {
-      setError(err.response?.data || 'Registration failed');
+      const errorMsg = err.response?.data?.message || 'მოხდა შეცდომა';
+      setError(errorMsg);
     }
   };
 
