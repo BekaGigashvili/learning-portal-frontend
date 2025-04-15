@@ -15,6 +15,7 @@
   box-sizing: border-box;
   transition: all 1s ease;
   margin: 0;
+
   .logo {
     font-size: 1.8rem;
     font-weight: bold;
@@ -22,6 +23,7 @@
     transition: all 2s ease;
     text-decoration: none;
   }
+
   .search-bar {
     flex: 1;
     display: flex;
@@ -31,24 +33,17 @@
     input {
       padding: 8px 12px;
       font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 4px 0 0 4px;
+      border: 1.5px solid $mainColor;
+      border-radius: 20px;
       width: 300px;
+
+
+      &:focus {
+        border: 1.5px solid $mainColor !important;
+        outline: none;
+      }
     }
 
-    button {
-      padding: 8px 16px;
-      background-color: #3498db;
-      color: white;
-      font-size: 16px;
-      border: none;
-      border-radius: 0 4px 4px 0;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #2980b9;
-    }
   }
 
   .hamburger {

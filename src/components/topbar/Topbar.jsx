@@ -14,6 +14,7 @@ export default function Topbar({ menuOpen, setMenuOpen }) {
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
+      setSearchQuery("");
     }
   };
 
