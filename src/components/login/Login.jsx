@@ -25,7 +25,7 @@ const Register = () => {
     setError('');
 
     try {
-      const res = await axios.post('http://localhost:8080/auth/authentication', formData, {
+      const res = await axios.post('http://localhost:8080/auth/login', formData, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -38,6 +38,7 @@ const Register = () => {
     } catch (err) {
         const errorMsg = err.response?.data?.message || 'მოხდა შეცდომა';
         setError(errorMsg);
+        console.log('error');
     }
   };
 
