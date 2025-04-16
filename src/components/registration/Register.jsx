@@ -29,7 +29,7 @@ const Register = () => {
     setSuccess('');
 
     try {
-      const res = await axios.post('http://localhost:8080/registration/register', formData, {
+      const res = await axios.post('http://localhost:8080/auth/register', formData, {
         headers: {
           'Content-Type': 'application/json',
         },
