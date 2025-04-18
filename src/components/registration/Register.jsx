@@ -37,7 +37,7 @@ const Register = () => {
 
       setSuccess(res.data);
       setTimeout(() => {
-        navigate('/login'); // Adjust path if your login route is different
+        navigate('/login');
       }, 3000);
     } catch (err) {
       const errorMsg = err.response?.data?.message || 'მოხდა შეცდომა';
