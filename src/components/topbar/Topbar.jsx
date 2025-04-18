@@ -1,14 +1,29 @@
 import React, { useState } from "react";
 import "./Topbar.scss";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function Topbar({ menuOpen, setMenuOpen }) {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
+  useEffect(() => {
+    let resizeTimer;
+
+    const handleResize = () => {
+      document.body.classList.add("no-transition");
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        document.body.classList.remove("no-transition");
+      }, 100);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleLogoClick = () => {
     const token = localStorage.getItem("token");
-    navigate(token ? "/dashboard" : "/");
+    navigate(token ? "/profile" : "/");
   };
 
   const handleKeyDown = (e) => {
