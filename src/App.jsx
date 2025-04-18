@@ -7,10 +7,12 @@ import Login from './components/login/Login.jsx'
 import { useState } from "react";
 import Intro from './components/intro/Intro.jsx';
 import Register from './components/registration/Register.jsx';
-import Dashboard from './components/dashboard/Dashboard.jsx';
+import Profile from './components/profile/Profile.jsx';
 import SearchResults from './components/search/SearchResults.jsx'
+import CourseDetail from './components/courseDetails/CourseDetail.jsx'
 
 const NotFound = () => <h1>404 - Page Not Found</h1>;
+
 
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -23,8 +25,9 @@ const App = () => {
           <Route path="/" element={<Intro />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/search" element={<SearchResults />} />
+          <Route path="/courses/:id" element={<CourseDetail />} />
           
           <Route path="*" element={<NotFound />} />  {/* Catch-all for 404 */}
         </Routes>
