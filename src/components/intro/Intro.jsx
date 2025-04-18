@@ -26,7 +26,7 @@ export default function Intro() {
   const goToLogin = () => {
     const token = localStorage.getItem('token');
     if (token) {
-      navigate('/dashboard');
+      navigate('/profile');
     } else {
       navigate('/login');
     }
