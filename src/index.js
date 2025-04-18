@@ -13,7 +13,8 @@ root.render(
 axios.interceptors.response.use(
   response => response,
   error => {
-    if (error.response?.status === 401) {
+    console.log(error.response.status);
+    if (error.response.status === 401) {
       const message = error.response.data;
 
       if (typeof message === "string" && message.toLowerCase().includes("expired")) {
