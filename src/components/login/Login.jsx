@@ -33,7 +33,7 @@ const Register = () => {
 
       const token = res.data.token;
       localStorage.setItem('token', token);
-      navigate('/dashboard');
+      navigate('/profile');
 
     } catch (err) {
         const errorMsg = err.response?.data?.message || 'მოხდა შეცდომა';
