@@ -33,8 +33,7 @@ body {
   transition: transform 0.3s ease;
 
   &:hover {
-    transform: scale(1.02); // optional nice hover lift
-    transform: rotate(-1deg);
+    transform: scale(1.03) rotate(-2deg);
   }
 
   &:hover .overlay {
