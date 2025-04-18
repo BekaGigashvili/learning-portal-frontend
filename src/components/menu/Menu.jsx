@@ -24,11 +24,19 @@ export default function Menu({ menuOpen, setMenuOpen }) {
         }
     };
 
+    const returnHomePage = () =>{
+        var link =  "/";
+        if (token){
+            link = "/profile";
+        }
+        return link;
+    }
+
     return (
         <div className={"menu " + (menuOpen && "active")}>
             <ul>
                 <li onClick={() => setMenuOpen(false)}>
-                    <a href="#intro">Home</a>
+                    <a href={returnHomePage()} style={{cursor: 'pointer'}}>მთავარი</a>
                 </li>
                 <li onClick={() => setMenuOpen(false)}>
                     <a href="#portfolio">Portfolio</a>
