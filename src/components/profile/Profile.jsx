@@ -76,7 +76,13 @@ const Profile = () => {
             <div className="profile-info">
               <div className="name-line">
                 <h2>{profile.firstName} {profile.lastName}</h2>
-                <span className="badge">STUDENT</span>
+                <span className="badge">
+                  {{
+                    STUDENT: "სტუდენტი",
+                    LECTURER: "ლექტორი",
+                    ADMIN: "ადმინი"
+                  }[profile.role] || profile.role}
+                </span>
               </div>
               <p className="subtitle">{profile.email}</p>
 
@@ -136,14 +142,14 @@ const Profile = () => {
       {activeTab === 'Enrolled' && (
         <div className="courses">
           {courses.length > 0 ? (
-            <ul>
+            <div className="course-cards">
               {courses.map((course, index) => (
-                <li key={index} className="course-item">
+                <div key={index} className="course-card">
                   <h3>{course.name}</h3>
                   <p>{course.description}</p>
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
           ) : (
             <p>No enrolled courses.</p>
           )}

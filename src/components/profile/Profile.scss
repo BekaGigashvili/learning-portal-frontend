@@ -124,3 +124,36 @@
   color: black;
   border-bottom: 2px solid black;
 }
+
+.course-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px 40px;
+  justify-content: center;
+}
+
+.course-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: clamp(240px, 25%, 320px);
+  transition: transform 0.3s ease;
+  border-left: 4px solid #3498db;
+
+  h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #2c3e50;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: #555;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
