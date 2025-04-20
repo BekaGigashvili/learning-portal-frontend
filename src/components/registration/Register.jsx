@@ -6,6 +6,8 @@ import axios from 'axios';
 const Register = () => {
   const navigate = useNavigate();
 
+  const [userType, setUserType] = useState('student'); // 'student' or 'lecturer'
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -29,7 +31,10 @@ const Register = () => {
     setSuccess('');
 
     try {
-      const res = await axios.post('http://localhost:8080/auth/register', formData, {
+      const res = await axios.post('http://localhost:8080/auth/register', {
+        ...formData,
+        role: userType === 'student' ? 'STUDENT' : 'INSTRUCTOR',
+      }, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -48,7 +53,21 @@ const Register = () => {
   return (
     <div className="register-page">
       <div className="register-container">
-        <h2>რეგისტრაცია</h2>
+        <div className="user-type-toggle">
+          <div
+            className={`type-option ${userType === 'student' ? 'active' : ''}`}
+            onClick={() => setUserType('student')}
+          >
+            სტუდენტი
+          </div>
+          <div
+            className={`type-option ${userType === 'lecturer' ? 'active' : ''}`}
+            onClick={() => setUserType('lecturer')}
+          >
+            ლექტორი
+          </div>
+        </div>
+
         <form onSubmit={handleSubmit}>
           <input type="text" name="firstName" placeholder="სახელი" value={formData.firstName} onChange={handleChange} required />
           <input type="text" name="lastName" placeholder="გვარი" value={formData.lastName} onChange={handleChange} required />
@@ -62,7 +81,6 @@ const Register = () => {
 
         {error && <p style={{ color: 'crimson', textAlign: 'center' }}>მოხდა შეცდომა</p>}
         {success && <p style={{ color: 'green', textAlign: 'center' }}>შეამოწმეთ მეილი</p>}
-
       </div>
     </div>
   );
